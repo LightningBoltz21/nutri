@@ -121,6 +121,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # WhiteNoise: serve static files directly from Gunicorn
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # ---------------------------------------------------------------------------
