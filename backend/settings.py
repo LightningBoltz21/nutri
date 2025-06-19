@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",  # DRF
     "corsheaders",  # CORS
     # Local apps
-    "api",
+    "backend.api",
 ]
 
 # ---------------------------------------------------------------------------
