@@ -2,7 +2,7 @@ import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
 const api = axios.create({
-  baseURL: "https://nutri-backend-nujg.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_URL || "/api"
 });
 
 api.interceptors.request.use(
