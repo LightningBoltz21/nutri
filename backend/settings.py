@@ -120,9 +120,14 @@ STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # WhiteNoise: serve static files directly from Gunicorn
-MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+MIDDLEWARE.insert(
+    MIDDLEWARE.index("django.middleware.security.SecurityMiddleware") + 1,
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+)
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Tell collectstatic to also grab the React bundle
+STATICFILES_DIRS = [BASE_DIR / "frontend-dist"]
 
 # ---------------------------------------------------------------------------
 # Django REST Framework
