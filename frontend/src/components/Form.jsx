@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import "../styles/Form.css"
 import LoadingIndicator from "./LoadingIndicator.jsx";
@@ -54,6 +54,20 @@ function Form({ route, method }) {
             <button className="form-button" type="submit">
                 {name}
             </button>
+            {/* Conditional link below the form */}
+            <p className="form-link">
+                {method === "login" ? (
+                    <>
+                        Don’t have an account?{" "}
+                        <Link to="/register">Register here</Link>
+                    </>
+                ) : (
+                    <>
+                        Already have an account?{" "}
+                        <Link to="/login">Log in</Link>
+                    </>
+                )}
+            </p>
         </form>
     );
 }
